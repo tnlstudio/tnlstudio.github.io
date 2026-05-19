@@ -131,11 +131,16 @@ const Apply = () => {
     setSubmitting(true);
     setSubmitError(false);
 
+    const formPayload = new FormData();
+    Object.entries(payload).forEach(([key, value]) => {
+      formPayload.append(key, value);
+    });
+
     try {
       const res = await fetch('https://formspree.io/f/mdajkvod', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { Accept: 'application/json' },
+        body: formPayload,
       });
 
       if (res.ok) {
