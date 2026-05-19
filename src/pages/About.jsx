@@ -6,9 +6,8 @@ const About = () => {
     <div style={{ paddingTop: '80px', backgroundColor: '#0a0a0f', color: '#fff' }}>
       <HeroSection />
       <VisionSection />
-      <TechnologySection />
-      <ValuesSection />
-      <TimelineSection />
+      <SupportSection />
+      <MissionSection />
     </div>
   );
 };
@@ -24,13 +23,9 @@ const HeroSection = () => {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Grid background */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: 0, left: 0, right: 0, bottom: 0,
         backgroundImage: `
           linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
           linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px)
@@ -39,29 +34,19 @@ const HeroSection = () => {
         opacity: 0.4
       }} />
 
-      {/* Gradient orbs */}
       <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         style={{
           position: 'absolute',
-          top: '20%',
-          left: '10%',
-          width: '400px',
-          height: '400px',
+          top: '20%', left: '10%',
+          width: '400px', height: '400px',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(102, 126, 234, 0.15), transparent)',
           filter: 'blur(60px)'
         }}
       />
-      
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -101,13 +86,14 @@ const HeroSection = () => {
           ABOUT US
         </h1>
         <p style={{
-          fontSize: '20px',
-          opacity: 0.8,
-          lineHeight: '1.8',
-          color: '#cbd5e0'
+          fontSize: '19px',
+          lineHeight: '1.9',
+          color: '#cbd5e0',
+          opacity: 0.85
         }}>
-          크리에이터와 함께 첫 번째 팀을 만들어가는<br />
-          신규 버추얼 크리에이터 프로젝트
+          가능성을 가진 크리에이터가<br />
+          혼자서는 어려운 시작을 이어갈 수 있도록<br />
+          함께 성장하는 스튜디오
         </p>
       </motion.div>
     </section>
@@ -116,562 +102,269 @@ const HeroSection = () => {
 
 const VisionSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const paragraphs = [
+    {
+      delay: 0.2,
+      text: 'T&L의 시작은 빛날 수 있는 여러 아티스트들의 가능성을 지켜보는 데에서 시작했습니다.',
+    },
+    {
+      delay: 0.35,
+      text: '재능(Talent)은 그 스스로 빛날 수 있는 가능성을 언제나 품고 있지만,\n그 빛은 때로 희미하고 연약하여 쉽게 사라지기도 합니다.',
+    },
+    {
+      delay: 0.5,
+      text: '우리는 재능이 만개하기 위해서는\n그에 따른 기회와 환경, 그리고 작은 행운(Luck)이 필요하다는 것을 알게 되었습니다.',
+    },
+    {
+      delay: 0.65,
+      highlight: true,
+      text: '스스로 무한한 가능성을 지닌 당신(Talent)에게\n그 빛을 더욱 밝게 만들어줄 수 있는 행운(Luck)이 되는 것,\n그것이 T&L Studio의 바람입니다.',
+    },
+  ];
 
   return (
     <section
       ref={ref}
       style={{
-        minHeight: '100vh',
         padding: '120px 60px',
         background: 'linear-gradient(to bottom, #0a0a0f 0%, #1a0f2e 100%)',
         position: 'relative'
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '820px', margin: '0 auto' }}>
         <motion.div
           className="about-section-heading"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: '100px' }}
-        >
-          <h2 style={{
-            fontSize: '56px',
-            fontWeight: '700',
-            marginBottom: '40px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
-            VISION & UNIVERSE
-          </h2>
-          <p style={{
-            fontSize: '19px',
-            lineHeight: '2',
-            color: '#cbd5e0',
-            maxWidth: '900px',
-            margin: '0 auto'
-          }}>
-            T&L STUDIO는 크리에이터와 함께 새로운 버추얼 유니버스를 만들어갑니다.
-            <br />
-            각자의 스토리와 세계관이 하나의 큰 이야기로 연결되어
-            <br />
-            팬 여러분께 몰입감과 감동을 선사합니다.
-          </p>
-        </motion.div>
-
-        <div className="about-feature-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '40px',
-          marginBottom: '100px'
-        }}>
-          {[
-            {
-              icon: '🌌',
-              title: 'Deep Worldview',
-              desc: '멤버별 고유의 기원과 스토리가 연결된 방대한 시네마틱 유니버스 구축. 각 크리에이터의 배경 스토리가 하나의 큰 세계관으로 이어집니다.'
-            },
-            {
-              icon: '🎙️',
-              title: 'Premium Music',
-              desc: '탑티어 프로듀서진과 협업한 고품질 오리지널 디스코그래피 전개. 정규 앨범부터 싱글까지 다양한 음원을 선보입니다.'
-            },
-            {
-              icon: '🤝',
-              title: 'Fandom First',
-              desc: '팬들과 실시간으로 호흡하고 서사를 함께 만들어가는 양방향 소통. 팬 참여형 콘텐츠로 함께 성장합니다.'
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '24px',
-                padding: '50px 35px',
-                textAlign: 'center',
-                transition: 'all 0.3s',
-                cursor: 'pointer',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-            >
-              {/* Hover glow effect */}
-              <div style={{
-                position: 'absolute',
-                top: '-50%',
-                left: '-50%',
-                width: '200%',
-                height: '200%',
-                background: 'radial-gradient(circle, rgba(102, 126, 234, 0.05), transparent 70%)',
-                opacity: 0,
-                transition: 'opacity 0.3s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-              onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
-              />
-
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontSize: '56px', marginBottom: '24px' }}>{item.icon}</div>
-                <h3 style={{
-                  fontSize: '24px',
-                  fontWeight: '700',
-                  marginBottom: '18px',
-                  color: '#fff'
-                }}>
-                  {item.title}
-                </h3>
-                <p style={{
-                  color: '#a0aec0',
-                  lineHeight: '1.8',
-                  fontSize: '15px'
-                }}>
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mission Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          style={{
-            background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))',
-            border: '1px solid rgba(102, 126, 234, 0.2)',
-            borderRadius: '24px',
-            padding: '60px',
-            textAlign: 'center'
-          }}
-        >
-          <h3 style={{
-            fontSize: '32px',
-            fontWeight: '700',
-            marginBottom: '24px',
-            color: '#fff'
-          }}>
-            Our Mission
-          </h3>
-          <p style={{
-            fontSize: '18px',
-            lineHeight: '1.9',
-            color: '#cbd5e0',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            "가상과 현실의 경계를 넘어, 모든 이에게 특별한 경험을 선사하고
-            <br />
-            크리에이터가 자신의 꿈을 마음껏 펼칠 수 있는 무대를 만듭니다."
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const TechnologySection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section
-      ref={ref}
-      style={{
-        padding: '120px 60px',
-        background: 'linear-gradient(to bottom, #1a0f2e 0%, #0f0a1e 100%)',
-        position: 'relative'
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
           style={{ textAlign: 'center', marginBottom: '80px' }}
         >
           <h2 style={{
             fontSize: '48px',
             fontWeight: '700',
-            marginBottom: '25px',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            margin: 0
+          }}>
+            VISION
+          </h2>
+        </motion.div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
+          {paragraphs.map((para, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: para.delay }}
+              style={{
+                fontSize: para.highlight ? '18px' : '17px',
+                lineHeight: '2',
+                color: para.highlight ? '#e2d9f3' : 'rgba(203, 213, 224, 0.7)',
+                textAlign: 'center',
+                whiteSpace: 'pre-line',
+                margin: 0,
+                fontWeight: para.highlight ? '500' : '400',
+              }}
+            >
+              {para.text}
+            </motion.p>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const supportItems = [
+  {
+    icon: '📋',
+    title: '활동 매니지먼트',
+    color: '#667eea',
+    lines: [
+      '일정 및 활동 방향 정리',
+      '콘텐츠 활동 보조',
+      '커뮤니티 운영 지원',
+    ],
+  },
+  {
+    icon: '🎙️',
+    title: 'Essential Setup',
+    color: '#a78bfa',
+    lines: [
+      '방송 시작을 위한 기본 세팅 지원',
+      '활동에 필요한 최소 환경 정리',
+      '방송 · 콘텐츠 입문 지원',
+    ],
+  },
+  {
+    icon: '💡',
+    title: 'Creative Support',
+    color: '#764ba2',
+    lines: [
+      '콘텐츠 아이디어 보조',
+      '활동 중 필요한 추가 지원',
+      '개인 활동을 존중하는 방향',
+    ],
+  },
+];
+
+const SupportSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+
+  return (
+    <section
+      ref={ref}
+      style={{
+        padding: '120px 60px',
+        background: 'linear-gradient(to bottom, #1a0f2e 0%, #0a0a0f 100%)',
+      }}
+    >
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          style={{ textAlign: 'center', marginBottom: '72px' }}
+        >
+          <h2 style={{
+            fontSize: '40px',
+            fontWeight: '700',
+            marginBottom: '18px',
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            VIRTUAL TECHNOLOGY
+            함께하는 활동 지원
           </h2>
           <p style={{
-            fontSize: '18px',
-            color: '#a0aec0',
-            maxWidth: '700px',
-            margin: '0 auto',
-            lineHeight: '1.8'
+            fontSize: '15px',
+            color: 'rgba(255,255,255,0.42)',
+            lineHeight: '1.85',
+            maxWidth: '500px',
+            margin: '0 auto'
           }}>
-            함께 구현해 나갈 버추얼 프로덕션 방향
+            모든 것을 대신하지 않습니다.<br />
+            부족할 수 있는 부분을 함께 채워나갑니다.
           </p>
         </motion.div>
 
-        <div className="about-tech-grid" style={{
+        <div className="about-support-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '60px',
-          alignItems: 'center'
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '28px'
         }}>
-          {/* Left - Tech Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 style={{
-              fontSize: '32px',
-              color: '#a78bfa',
-              marginBottom: '25px',
-              fontWeight: '700'
-            }}>
-              함께 만들어갈 스튜디오
-            </h3>
-            <p style={{
-              color: '#cbd5e0',
-              lineHeight: '1.9',
-              marginBottom: '40px',
-              fontSize: '16px'
-            }}>
-              1기생과 함께 구축해 나갈 버추얼 프로덕션 환경입니다.
-              최적의 방송 퀄리티를 위한 기술 인프라를 단계적으로 준비하고 있습니다.
-            </p>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              {[
-                { icon: '🎯', title: '버추얼 모션 캡처 시스템', desc: '도입 예정 · 준비 중' },
-                { icon: '😊', title: '실시간 페이셜 캡처', desc: '도입 예정 · 준비 중' },
-                { icon: '🎨', title: '3D 모델링 및 렌더링', desc: '구축 방향 논의 중' },
-                { icon: '📡', title: '고품질 스트리밍', desc: '목표 기술 방향' }
-              ].map((tech, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + idx * 0.1 }}
-                  whileHover={{ x: 10 }}
-                  style={{
-                    background: 'rgba(102, 126, 234, 0.08)',
-                    padding: '20px 24px',
-                    borderRadius: '16px',
-                    border: '1px solid rgba(102, 126, 234, 0.15)',
-                    transition: 'all 0.3s',
-                    cursor: 'pointer'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'start', gap: '15px' }}>
-                    <span style={{ fontSize: '24px' }}>{tech.icon}</span>
-                    <div>
-                      <div style={{
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        color: '#fff',
-                        marginBottom: '6px'
-                      }}>
-                        {tech.title}
-                      </div>
-                      <div style={{
-                        fontSize: '13px',
-                        color: '#a0aec0'
-                      }}>
-                        {tech.desc}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right - Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{
-              height: '500px',
-              background: 'linear-gradient(135deg, #1e1e3f, #000)',
-              borderRadius: '24px',
-              border: '1px solid rgba(102, 126, 234, 0.3)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            {/* Animated circles */}
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.1, 0.3]
-                }}
-                transition={{
-                  duration: 3,
-                  delay: i * 0.8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  position: 'absolute',
-                  width: `${200 + i * 100}px`,
-                  height: `${200 + i * 100}px`,
-                  borderRadius: '50%',
-                  border: '2px solid rgba(102, 126, 234, 0.3)',
-                  zIndex: i
-                }}
-              />
-            ))}
-
-            <div style={{
-              fontSize: '100px',
-              opacity: 0.5,
-              position: 'relative',
-              zIndex: 10
-            }}>
-              ⚙️
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ValuesSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const values = [
-    {
-      title: 'Innovation',
-      icon: '🚀',
-      desc: '끊임없는 기술 혁신과 창의적 시도',
-      color: '#667eea'
-    },
-    {
-      title: 'Quality',
-      icon: '💎',
-      desc: '타협 없는 최고 품질 추구',
-      color: '#a78bfa'
-    },
-    {
-      title: 'Trust',
-      icon: '🤝',
-      desc: '투명하고 신뢰할 수 있는 운영',
-      color: '#764ba2'
-    },
-    {
-      title: 'Respect',
-      icon: '❤️',
-      desc: '크리에이터 중심의 상호 존중',
-      color: '#ff7675'
-    }
-  ];
-
-  return (
-    <section
-      ref={ref}
-      style={{
-        padding: '120px 60px',
-        background: '#0a0a0f'
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          style={{
-            fontSize: '48px',
-            fontWeight: '700',
-            textAlign: 'center',
-            marginBottom: '80px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          CORE VALUES
-        </motion.h2>
-
-        <div className="about-values-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '30px'
-        }}>
-          {values.map((value, i) => (
+          {supportItems.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -15, scale: 1.05 }}
+              transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
+              whileHover={{ y: -6 }}
               style={{
-                textAlign: 'center',
-                padding: '50px 30px',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '20px',
-                cursor: 'pointer',
-                transition: 'all 0.4s',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = `${value.color}60`;
-                e.currentTarget.style.boxShadow = `0 10px 40px ${value.color}30`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <div style={{ fontSize: '56px', marginBottom: '20px' }}>{value.icon}</div>
-              <h3 style={{
-                fontSize: '22px',
-                fontWeight: '700',
-                marginBottom: '12px',
-                color: value.color
-              }}>
-                {value.title}
-              </h3>
-              <p style={{
-                fontSize: '14px',
-                color: '#a0aec0',
-                lineHeight: '1.6'
-              }}>
-                {value.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const TimelineSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const timeline = [
-    { year: '2026', event: 'T&L STUDIO 프로젝트 출범', detail: '새로운 버추얼 크리에이터 발굴 및 스튜디오 기획 시작' },
-    { year: '2026', event: 'TBD', detail: '준비 중입니다.' }
-  ];
-
-  return (
-    <section
-      ref={ref}
-      style={{
-        padding: '120px 60px',
-        background: 'linear-gradient(to bottom, #0a0a0f 0%, #1a0f2e 100%)'
-      }}
-    >
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          style={{
-            fontSize: '48px',
-            fontWeight: '700',
-            textAlign: 'center',
-            marginBottom: '100px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          OUR JOURNEY
-        </motion.h2>
-
-        <div style={{ position: 'relative' }}>
-          {/* Timeline line */}
-          <div style={{
-            position: 'absolute',
-            left: '50%',
-            top: 0,
-            bottom: 0,
-            width: '2px',
-            background: 'linear-gradient(to bottom, #667eea, #764ba2)',
-            transform: 'translateX(-50%)'
-          }} />
-
-          {timeline.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              style={{
-                display: 'flex',
-                justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end',
-                marginBottom: '80px',
-                position: 'relative'
+                background: 'rgba(255,255,255,0.02)',
+                border: `1px solid ${item.color}28`,
+                borderRadius: '24px',
+                padding: '40px 32px',
               }}
             >
               <div style={{
-                width: '45%',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(102, 126, 234, 0.2)',
-                borderRadius: '20px',
-                padding: '35px',
-                position: 'relative'
+                width: '52px', height: '52px', borderRadius: '16px',
+                background: `${item.color}18`,
+                border: `1px solid ${item.color}38`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '24px', marginBottom: '24px',
               }}>
-                {/* Timeline dot */}
-                <div style={{
-                  position: 'absolute',
-                  top: '50%',
-                  [i % 2 === 0 ? 'right' : 'left']: '-18px',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #667eea, #764ba2)',
-                  transform: 'translateY(-50%)',
-                  border: '4px solid #0a0a0f',
-                  boxShadow: '0 0 20px rgba(102, 126, 234, 0.6)'
-                }} />
-
-                <div style={{
-                  fontSize: '40px',
-                  fontWeight: '800',
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  marginBottom: '15px'
-                }}>
-                  {item.year}
-                </div>
-                <h3 style={{
-                  fontSize: '22px',
-                  fontWeight: '700',
-                  color: '#fff',
-                  marginBottom: '12px'
-                }}>
-                  {item.event}
-                </h3>
-                <p style={{
-                  fontSize: '15px',
-                  lineHeight: '1.7',
-                  color: '#a0aec0'
-                }}>
-                  {item.detail}
-                </p>
+                {item.icon}
               </div>
+              <h3 style={{
+                fontSize: '18px', fontWeight: '700', color: '#fff',
+                marginBottom: '20px', margin: '0 0 20px 0',
+              }}>
+                {item.title}
+              </h3>
+              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {item.lines.map((line, j) => (
+                  <li key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                    <div style={{
+                      width: '5px', height: '5px', borderRadius: '50%',
+                      background: item.color, flexShrink: 0, marginTop: '8px',
+                    }} />
+                    <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.52)', lineHeight: '1.65' }}>
+                      {line}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+const MissionSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+
+  const missions = [
+    '가능성을 가진 크리에이터의 시작을 함께한다',
+    '재능이 지속될 수 있는 환경을 만든다',
+    '더 오래, 더 밝게 빛날 수 있도록 돕는다',
+  ];
+
+  return (
+    <section
+      ref={ref}
+      style={{
+        padding: '100px 60px 120px',
+        background: '#0a0a0f',
+      }}
+    >
+      <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          style={{
+            background: 'linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08))',
+            border: '1px solid rgba(102,126,234,0.2)',
+            borderRadius: '28px',
+            padding: '60px',
+            textAlign: 'center',
+          }}
+        >
+          <div style={{
+            fontSize: '12px', fontWeight: '700', letterSpacing: '3px',
+            color: '#a78bfa', marginBottom: '36px',
+          }}>
+            MISSION
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+            {missions.map((m, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+                style={{
+                  fontSize: '18px',
+                  color: i === missions.length - 1 ? '#e2d9f3' : 'rgba(255,255,255,0.6)',
+                  margin: 0,
+                  lineHeight: '1.6',
+                  fontWeight: i === missions.length - 1 ? '500' : '400',
+                }}
+              >
+                {m}
+              </motion.p>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

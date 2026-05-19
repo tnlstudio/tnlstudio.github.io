@@ -85,6 +85,8 @@ const Apply = () => {
   const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [agreementError, setAgreementError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [formData, setFormData] = useState({
     name: '', phone: '', email: '', nickname: '',
     portfolio: '', intro: '', motivation: '',
@@ -100,15 +102,53 @@ const Apply = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreed) {
       setAgreementError(true);
       setTimeout(() => setAgreementError(false), 2500);
       return;
     }
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const extraData = {};
+    currentCat.extraFields.forEach((f) => {
+      if (formData[f.key]) extraData[f.label] = formData[f.key];
+    });
+
+    const payload = {
+      지원분야: currentCat.label,
+      이름: formData.name,
+      연락처: formData.phone,
+      이메일: formData.email,
+      활동닉네임: formData.nickname,
+      포트폴리오: formData.portfolio,
+      자기소개: formData.intro,
+      지원동기: formData.motivation,
+      개인정보동의: '동의함',
+      ...extraData,
+    };
+
+    setSubmitting(true);
+    setSubmitError(false);
+
+    try {
+      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORMSPREE_ENDPOINT', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -453,21 +493,46 @@ const Apply = () => {
             {/* Submit button */}
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02, boxShadow: '0 14px 44px rgba(102,126,234,0.5)' }}
-              whileTap={{ scale: 0.98 }}
+              disabled={submitting}
+              whileHover={submitting ? {} : { scale: 1.02, boxShadow: '0 14px 44px rgba(102,126,234,0.5)' }}
+              whileTap={submitting ? {} : { scale: 0.98 }}
               style={{
                 width: '100%', padding: '18px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: submitting
+                  ? 'rgba(102,126,234,0.4)'
+                  : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 color: '#fff', border: 'none', borderRadius: '16px',
-                fontSize: '17px', fontWeight: '700', cursor: 'pointer',
+                fontSize: '17px', fontWeight: '700',
+                cursor: submitting ? 'not-allowed' : 'pointer',
                 fontFamily: "'Pretendard', sans-serif",
                 letterSpacing: '0.5px',
-                boxShadow: '0 6px 24px rgba(102,126,234,0.35)',
+                boxShadow: submitting ? 'none' : '0 6px 24px rgba(102,126,234,0.35)',
                 transition: 'all 0.3s',
               }}
             >
-              지원서 제출하기
+              {submitting ? '전송 중...' : '지원서 제출하기'}
             </motion.button>
+
+            {/* Submit error */}
+            <AnimatePresence>
+              {submitError && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  style={{
+                    marginTop: '16px', padding: '14px 18px',
+                    background: 'rgba(239,68,68,0.08)',
+                    border: '1px solid rgba(239,68,68,0.3)',
+                    borderRadius: '12px',
+                    fontSize: '14px', color: '#fc8181',
+                    textAlign: 'center', lineHeight: '1.6',
+                  }}
+                >
+                  전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.
+                </motion.div>
+              )}
+            </AnimatePresence>
           </form>
         </motion.div>
       </section>

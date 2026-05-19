@@ -179,8 +179,7 @@ body {
     width: 100%;
   }
 
-  .latest-release-layout,
-  .about-tech-grid {
+  .latest-release-layout {
     flex-direction: column !important;
     display: flex !important;
     gap: 40px !important;
@@ -192,8 +191,7 @@ body {
   }
 
   .quick-stats-grid,
-  .about-feature-grid,
-  .about-values-grid,
+  .about-support-grid,
   .content-card-grid,
   .site-footer-grid {
     grid-template-columns: 1fr !important;
