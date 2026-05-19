@@ -132,7 +132,7 @@ const Apply = () => {
     setSubmitError(false);
 
     try {
-      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORMSPREE_ENDPOINT', {
+      const res = await fetch('https://formspree.io/f/mdajkvod', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
