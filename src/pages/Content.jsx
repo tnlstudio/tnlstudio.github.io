@@ -1,146 +1,277 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Content = () => {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [activeDay, setActiveDay] = useState('MON');
+  const navigate = useNavigate();
 
   const categories = ['ALL', 'MUSIC VIDEO', 'COVER', 'LIVE', 'SHORTS'];
   const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
-  const featuredVideo = {
-    title: "Universe 1st Single 'STARDUST' Official MV",
-    desc: "T&L STUDIO.의 첫 번째 오리지널 단체곡. 별가루처럼 쏟아지는 기적의 멜로디를 지금 감상하세요.",
-    views: "1.5M views",
-    date: "2026.05.06",
-    url: null
-  };
-
-  const videos = [
-    { type: 'MUSIC VIDEO', title: '[MV] STARDUST - Universe', creator: 'NULL USER 3', img: '#667eea', url: null },
-    { type: 'COVER', title: '아이돌(IDOL) Cover by Ayane', creator: 'NULL USER 2', img: '#ff7675', url: null },
-    { type: 'LIVE', title: '🔴 1주년 기념 3D 라이브 콘서트', creator: 'NULL USER 1', img: '#a78bfa', url: null },
-    { type: 'COVER', title: 'KICK BACK Cover by Kuro', creator: 'NULL USER 4', img: '#74b9ff', url: null },
-    { type: 'SHORTS', title: '방송 중 마이크를 끄는 걸 잊었을 때', creator: 'NULL USER 5', img: '#00b894', url: null },
-    { type: 'MUSIC VIDEO', title: '[MV] LUNAR ECLIPSE - Everlis', creator: 'NULL USER 1', img: '#fd79a8', url: null },
+  const contentLineup = [
+    { type: 'MUSIC VIDEO', title: 'Original Song Project', desc: '1기생 데뷔 오리지널 곡', color: '#667eea', icon: '🎵' },
+    { type: 'COVER', title: 'Cover Contents', desc: '인기곡 커버 및 편곡 영상', color: '#ff7675', icon: '🎤' },
+    { type: 'LIVE', title: 'Live Streaming', desc: '팬과 소통하는 정기 라이브', color: '#a78bfa', icon: '📡' },
+    { type: 'SHORTS', title: 'Short-form Clips', desc: '숏폼 클립 & 하이라이트', color: '#74b9ff', icon: '✂️' },
+    { type: 'MUSIC VIDEO', title: 'Debut Showcase', desc: '1기생 데뷔 쇼케이스 영상', color: '#fd79a8', icon: '⭐' },
+    { type: 'LIVE', title: 'Behind Story', desc: '데뷔 준비 과정 비하인드', color: '#00b894', icon: '📖' },
   ];
 
   const scheduleData = {
-    MON: [
-      { time: '18:00', type: 'GAME', title: '롤 5인큐 내전', creator: 'NULL USER 1 & Friends', color: '#74b9ff', url: null },
-      { time: '21:00', type: 'SING', title: '버튜버 이상형 월드컵', creator: 'NULL USER 2', color: '#ff7675', url: null }
-    ],
-    TUE: [
-      { time: '19:00', type: 'TALK', title: '사연 읽어주는 라디오', creator: 'NULL USER 3', color: '#a29bfe', url: null }
-    ],
-
-  };
-
-  const openUrlOrNotify = (url) => {
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-      return;
-    }
-    window.alert('준비 중입니다.');
+    MON: [{ type: 'LIVE', title: '정기 라이브 방송', desc: '팬들과 소통하는 주간 정기 라이브', color: '#74b9ff' }],
+    TUE: [{ type: 'MUSIC', title: '음악 콘텐츠', desc: '커버 영상 또는 오리지널 작업 공개', color: '#ff7675' }],
+    WED: [{ type: 'GAME', title: '게임 방송', desc: '다양한 장르의 게임 플레이', color: '#a29bfe' }],
+    THU: [{ type: 'TALK', title: '토크 & 일상', desc: '팬과 함께하는 토크 방송', color: '#fd79a8' }],
+    FRI: [{ type: 'COLLAB', title: '콜라보 콘텐츠', desc: '멤버 합방 또는 외부 콜라보', color: '#00b894' }],
+    SAT: [{ type: 'SHORT', title: '숏폼 업로드', desc: '숏클립 및 하이라이트 영상', color: '#667eea' }],
+    SUN: [{ type: 'EVENT', title: '스페셜 이벤트', desc: '팬 이벤트 · Q&A · 특별 방송', color: '#764ba2' }],
   };
 
   return (
     <div style={{ backgroundColor: '#0a0a0f', minHeight: '100vh', color: '#fff', paddingBottom: '100px' }}>
-      
-      {/* 1. Featured Hero Video Section */}
+
+      {/* Featured Hero Section */}
       <section style={{ paddingTop: '100px', paddingBottom: '60px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="content-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 60px' }}>
-          <div className="content-featured" style={{ position: 'relative', height: '600px', borderRadius: '24px', overflow: 'hidden', background: '#111', display: 'flex', alignItems: 'flex-end', padding: '60px' }}>
-            {/* Background Placeholder */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)', zIndex: 0 }}>
-               {/* 여기에 실제 <video> 태그나 유튜브 썸네일 이미지가 들어갑니다 */}
-               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,15,1) 0%, rgba(10,10,15,0) 60%)' }} />
+          <div
+            className="content-featured"
+            style={{
+              position: 'relative', height: '600px', borderRadius: '24px',
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, #1a0f2e 0%, #0a0a0f 100%)',
+              display: 'flex', alignItems: 'flex-end', padding: '60px',
+            }}
+          >
+            {/* Background decoration */}
+            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+              <div style={{
+                position: 'absolute', top: '20%', right: '15%',
+                width: '500px', height: '500px', borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(102,126,234,0.15), transparent)',
+                filter: 'blur(80px)',
+              }} />
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to top, rgba(10,10,15,1) 0%, rgba(10,10,15,0.2) 60%)',
+              }} />
             </div>
-            
-            {/* Play Button Center */}
-            <button type="button" aria-label="대표 영상 재생" onClick={() => openUrlOrNotify(featuredVideo.url)} style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 2, border: '1px solid rgba(255,255,255,0.5)' }}>
-              <div style={{ borderLeft: '20px solid #fff', borderTop: '12px solid transparent', borderBottom: '12px solid transparent', marginLeft: '5px' }}></div>
-            </button>
 
-            {/* Featured Text Info */}
-            <div style={{ position: 'relative', zIndex: 2, maxWidth: '600px' }}>
-              <div style={{ padding: '6px 16px', background: '#667eea', display: 'inline-block', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold', marginBottom: '20px', letterSpacing: '1px' }}>HOT RELEASE</div>
-              <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '15px', lineHeight: '1.2' }}>{featuredVideo.title}</h1>
-              <p style={{ color: '#cbd5e0', fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>{featuredVideo.desc}</p>
-              <div style={{ color: '#718096', fontSize: '14px' }}>{featuredVideo.views} · {featuredVideo.date}</div>
+            {/* Center visual */}
+            <div style={{
+              position: 'absolute', top: '50%', left: '60%',
+              transform: 'translate(-50%, -50%)', zIndex: 1, textAlign: 'center',
+            }}>
+              <motion.div
+                animate={{ scale: [1, 1.06, 1], opacity: [0.55, 1, 0.55] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ fontSize: '130px', filter: 'drop-shadow(0 0 50px rgba(102,126,234,0.6))' }}
+              >
+                ✨
+              </motion.div>
+              <div style={{
+                marginTop: '20px', fontSize: '14px',
+                color: 'rgba(255,255,255,0.45)',
+                letterSpacing: '2px', fontWeight: '600',
+              }}>
+                1기생 합류 후 공개
+              </div>
+            </div>
+
+            {/* Text */}
+            <div style={{ position: 'relative', zIndex: 2, maxWidth: '560px' }}>
+              <div style={{
+                padding: '6px 16px',
+                background: 'rgba(102,126,234,0.8)',
+                display: 'inline-block', borderRadius: '20px',
+                fontSize: '12px', fontWeight: '700',
+                marginBottom: '20px', letterSpacing: '1px',
+              }}>
+                DEBUT PROJECT
+              </div>
+              <h1 style={{ fontSize: '42px', fontWeight: '800', marginBottom: '16px', lineHeight: '1.25' }}>
+                1기생과 함께 만들어갈<br />첫 번째 오리지널 프로젝트
+              </h1>
+              <p style={{ color: '#cbd5e0', fontSize: '16px', lineHeight: '1.7', marginBottom: '28px' }}>
+                데뷔 후 공개될 오리지널 콘텐츠를 준비하고 있습니다.<br />
+                1기생 합류와 함께 모든 것이 시작됩니다.
+              </p>
+              <motion.button
+                onClick={() => navigate('/apply')}
+                whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(102,126,234,0.5)' }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  padding: '14px 36px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: '#fff', border: 'none', borderRadius: '30px',
+                  fontSize: '16px', fontWeight: '700', cursor: 'pointer',
+                  fontFamily: "'Pretendard', sans-serif",
+                  boxShadow: '0 4px 20px rgba(102,126,234,0.35)',
+                }}
+              >
+                1기생 지원하기
+              </motion.button>
             </div>
           </div>
         </div>
       </section>
 
       <div className="content-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 60px', marginTop: '100px' }}>
-        
-        {/* 2. Video Gallery Section */}
+
+        {/* Content Lineup */}
         <div style={{ marginBottom: '120px' }}>
-          <div className="content-section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: '700' }}>CONTENT GALLERY</h2>
+          <div className="content-section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '16px' }}>
+            <div>
+              <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '8px' }}>CONTENT LINEUP</h2>
+              <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>1기생 데뷔 후 공개될 예정 콘텐츠</p>
+            </div>
             <div className="content-filter-row" style={{ display: 'flex', gap: '15px' }}>
               {categories.map(cat => (
-                <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 20px', background: activeCategory === cat ? '#fff' : 'transparent', color: activeCategory === cat ? '#000' : '#718096', border: '1px solid', borderColor: activeCategory === cat ? '#fff' : 'rgba(255,255,255,0.2)', borderRadius: '20px', fontSize: '13px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}>
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  style={{
+                    padding: '8px 20px',
+                    background: activeCategory === cat ? '#fff' : 'transparent',
+                    color: activeCategory === cat ? '#000' : '#718096',
+                    border: '1px solid',
+                    borderColor: activeCategory === cat ? '#fff' : 'rgba(255,255,255,0.2)',
+                    borderRadius: '20px', fontSize: '13px', fontWeight: '600',
+                    cursor: 'pointer', transition: 'all 0.2s',
+                    fontFamily: "'Pretendard', sans-serif",
+                  }}
+                >
                   {cat}
                 </button>
               ))}
             </div>
           </div>
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '40px' }} />
 
           <div className="content-card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-            {videos.filter(v => activeCategory === 'ALL' || v.type === activeCategory).map((video, i) => (
-              <motion.div key={i} whileHover={{ y: -8 }} onClick={() => openUrlOrNotify(video.url)} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openUrlOrNotify(video.url); } }} style={{ cursor: 'pointer' }}>
-                <div style={{ width: '100%', aspectRatio: '16/9', background: `linear-gradient(135deg, #111, ${video.img}40)`, borderRadius: '16px', marginBottom: '15px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', position: 'relative' }}>
-                  <div style={{ position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0,0,0,0.8)', padding: '4px 8px', borderRadius: '6px', fontSize: '12px' }}>04:20</div>
-                  <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.45)', fontSize: '13px', letterSpacing: '1px', fontWeight: '600' }}>THUMBNAIL<br />COMING SOON</div>
+            {contentLineup.filter(v => activeCategory === 'ALL' || v.type === activeCategory).map((item, i) => (
+              <motion.div key={i} whileHover={{ y: -8 }} style={{ cursor: 'default' }}>
+                {/* Thumbnail */}
+                <div style={{
+                  width: '100%', aspectRatio: '16/9',
+                  background: `linear-gradient(135deg, #111, ${item.color}30)`,
+                  borderRadius: '16px', marginBottom: '15px',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', justifyContent: 'center',
+                  position: 'relative', overflow: 'hidden',
+                }}>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: `radial-gradient(circle at 50% 50%, ${item.color}15, transparent 70%)`,
+                  }} />
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3 + i * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+                    style={{
+                      fontSize: '48px', position: 'relative', zIndex: 1,
+                      filter: `drop-shadow(0 0 16px ${item.color}80)`,
+                    }}
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <div style={{
+                    position: 'absolute', bottom: '12px', right: '12px',
+                    padding: '4px 10px',
+                    background: `${item.color}25`,
+                    border: `1px solid ${item.color}40`,
+                    borderRadius: '8px', fontSize: '11px',
+                    color: item.color, fontWeight: '700', letterSpacing: '0.5px',
+                  }}>
+                    {item.type}
+                  </div>
                 </div>
-                <div style={{ color: '#a78bfa', fontSize: '12px', fontWeight: '600', marginBottom: '8px' }}>{video.type}</div>
-                <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', lineHeight: '1.4' }}>{video.title}</h3>
-                <div style={{ color: '#718096', fontSize: '14px' }}>{video.creator}</div>
+                <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '6px', lineHeight: '1.4' }}>{item.title}</h3>
+                <div style={{ color: '#718096', fontSize: '14px' }}>{item.desc}</div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* 3. Interactive Schedule Section */}
+        {/* Planned Content Schedule */}
         <div>
-          <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '40px' }}>WEEKLY SCHEDULE</h2>
-          
-          <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden' }}>
-            {/* 요일 탭 */}
+          <div style={{ marginBottom: '16px' }}>
+            <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '8px' }}>PLANNED CONTENT</h2>
+            <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>
+              데뷔 후 운영 예정인 콘텐츠 방향 — 1기생 합류 후 실제 스케줄이 공개됩니다.
+            </p>
+          </div>
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '40px' }} />
+
+          <div style={{
+            background: 'rgba(255,255,255,0.02)', borderRadius: '24px',
+            border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden',
+          }}>
+            {/* Day tabs */}
             <div className="schedule-day-tabs" style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
               {days.map(day => (
-                <button key={day} onClick={() => setActiveDay(day)} style={{ flex: 1, padding: '20px 0', background: activeDay === day ? 'rgba(102, 126, 234, 0.1)' : 'transparent', border: 'none', borderBottom: activeDay === day ? '2px solid #667eea' : '2px solid transparent', color: activeDay === day ? '#fff' : '#718096', fontSize: '16px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s' }}>
+                <button
+                  key={day}
+                  onClick={() => setActiveDay(day)}
+                  style={{
+                    flex: 1, padding: '20px 0',
+                    background: activeDay === day ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                    border: 'none',
+                    borderBottom: activeDay === day ? '2px solid #667eea' : '2px solid transparent',
+                    color: activeDay === day ? '#fff' : '#718096',
+                    fontSize: '16px', fontWeight: '700',
+                    cursor: 'pointer', transition: 'all 0.2s',
+                    fontFamily: "'Pretendard', sans-serif",
+                  }}
+                >
                   {day}
                 </button>
               ))}
             </div>
 
-            {/* 타임라인 콘텐츠 */}
             <div style={{ padding: '40px' }}>
-              {(scheduleData[activeDay] || []).length > 0 ? (
-                scheduleData[activeDay].map((sch, i) => (
-                  <motion.div className="schedule-row" key={i} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} style={{ display: 'flex', gap: '30px', marginBottom: i === scheduleData[activeDay].length - 1 ? 0 : '30px' }}>
-                    <div style={{ fontSize: '24px', fontWeight: '800', color: sch.color, width: '80px', paddingTop: '5px' }}>{sch.time}</div>
-                    
-                    <div style={{ flex: 1, background: '#111', padding: '25px', borderRadius: '16px', borderLeft: `4px solid ${sch.color}`, borderTop: '1px solid rgba(255,255,255,0.05)', borderRight: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div className="schedule-card-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                        <div>
-                          <div style={{ padding: '4px 10px', background: `${sch.color}20`, color: sch.color, borderRadius: '12px', fontSize: '11px', fontWeight: 'bold', display: 'inline-block', marginBottom: '10px' }}>{sch.type}</div>
-                          <h4 style={{ fontSize: '20px', fontWeight: '700', color: '#fff', margin: '0 0 10px 0' }}>{sch.title}</h4>
-                          <div style={{ color: '#a0aec0', fontSize: '15px' }}>🎙️ {sch.creator}</div>
-                        </div>
-                        <button onClick={() => openUrlOrNotify(sch.url)} style={{ padding: '10px 20px', background: 'transparent', border: `1px solid ${sch.color}`, color: sch.color, borderRadius: '20px', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}>방송 대기실</button>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                <div style={{ textAlign: 'center', color: '#718096', padding: '40px 0', fontSize: '16px' }}>
-                  예정된 공식 일정이 없습니다.
-                </div>
-              )}
+              {(scheduleData[activeDay] || []).map((item, i) => (
+                <motion.div
+                  className="schedule-row"
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  style={{
+                    display: 'flex', gap: '24px',
+                    marginBottom: i === (scheduleData[activeDay].length - 1) ? 0 : '20px',
+                  }}
+                >
+                  <div style={{
+                    flexShrink: 0, paddingTop: '4px',
+                    display: 'flex', alignItems: 'flex-start',
+                  }}>
+                    <span style={{
+                      padding: '6px 12px',
+                      background: `${item.color}20`,
+                      border: `1px solid ${item.color}40`,
+                      borderRadius: '10px', fontSize: '11px',
+                      color: item.color, fontWeight: '700', letterSpacing: '1px',
+                      whiteSpace: 'nowrap',
+                    }}>
+                      {item.type}
+                    </span>
+                  </div>
+                  <div style={{
+                    flex: 1, background: '#111', padding: '22px 24px',
+                    borderRadius: '16px',
+                    borderTop: '1px solid rgba(255,255,255,0.05)',
+                    borderRight: '1px solid rgba(255,255,255,0.05)',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)',
+                    borderLeft: `4px solid ${item.color}`,
+                  }}>
+                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#fff', margin: '0 0 8px 0' }}>
+                      {item.title}
+                    </h4>
+                    <div style={{ color: '#a0aec0', fontSize: '14px' }}>{item.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

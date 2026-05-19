@@ -16,16 +16,16 @@ const Home = () => {
   return (
     <div ref={containerRef} style={{ backgroundColor: '#0a0a0f', minHeight: '100vh' }}>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="home-hero"
-        style={{ 
-          height: '100vh', 
-          position: 'relative', 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          overflow: 'hidden', 
+        style={{
+          height: '100vh',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
           background: 'radial-gradient(ellipse at top, #1e1e3f 0%, #0a0a0f 50%)',
           opacity,
           scale
@@ -45,79 +45,79 @@ const Home = () => {
           style={{ position: 'absolute', inset: 0, zIndex: 0 }}
         />
 
-        {/* Enhanced floating particles */}
+        {/* Floating particles */}
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            animate={{ 
-              y: [0, -40, 0], 
+            animate={{
+              y: [0, -40, 0],
               opacity: [0.2, 0.6, 0.2],
               scale: [1, 1.2, 1]
             }}
-            transition={{ 
-              duration: 3 + Math.random() * 3, 
-              repeat: Infinity, 
+            transition={{
+              duration: 3 + Math.random() * 3,
+              repeat: Infinity,
               delay: Math.random() * 2,
               ease: "easeInOut"
             }}
-            style={{ 
-              position: 'absolute', 
-              width: Math.random() * 6 + 2, 
-              height: Math.random() * 6 + 2, 
-              borderRadius: '50%', 
+            style={{
+              position: 'absolute',
+              width: Math.random() * 6 + 2,
+              height: Math.random() * 6 + 2,
+              borderRadius: '50%',
               background: `rgba(${Math.random() > 0.5 ? '102, 126, 234' : '118, 75, 162'}, 0.6)`,
               boxShadow: `0 0 ${Math.random() * 10 + 5}px rgba(102, 126, 234, 0.5)`,
-              left: `${Math.random() * 100}%`, 
-              top: `${Math.random() * 100}%`, 
-              zIndex: 1 
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              zIndex: 1
             }}
           />
         ))}
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} 
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="home-hero-content"
           style={{ textAlign: 'center', zIndex: 2, position: 'relative' }}
         >
           {/* Badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }} 
-            animate={{ opacity: 1, scale: 1 }} 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
-            style={{ 
-              display: 'inline-block', 
-              padding: '10px 28px', 
-              border: '1px solid rgba(167, 139, 250, 0.5)', 
-              borderRadius: '30px', 
-              color: '#a78bfa', 
-              fontSize: '13px', 
-              letterSpacing: '3px', 
-              marginBottom: '30px', 
+            style={{
+              display: 'inline-block',
+              padding: '10px 28px',
+              border: '1px solid rgba(167, 139, 250, 0.5)',
+              borderRadius: '30px',
+              color: '#a78bfa',
+              fontSize: '13px',
+              letterSpacing: '3px',
+              marginBottom: '30px',
               background: 'rgba(167, 139, 250, 0.08)',
               backdropFilter: 'blur(10px)',
               boxShadow: '0 4px 20px rgba(167, 139, 250, 0.2)',
               fontWeight: '600'
             }}
           >
-            PROJECT LAUNCH
+            1ST GENERATION RECRUIT
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             className="home-hero-title"
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} 
-            style={{ 
-              fontSize: '90px', 
-              fontWeight: '800', 
-              margin: '0 0 30px 0', 
-              background: 'linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #667eea 100%)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent', 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              fontSize: '90px',
+              fontWeight: '800',
+              margin: '0 0 30px 0',
+              background: 'linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #667eea 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               letterSpacing: '-3px',
               lineHeight: '1.1',
               textShadow: '0 0 80px rgba(102, 126, 234, 0.3)'
@@ -127,23 +127,23 @@ const Home = () => {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             className="home-hero-subtitle"
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 1, delay: 0.7 }} 
-            style={{ 
-              fontSize: '22px', 
-              color: '#cbd5e0', 
-              maxWidth: '700px', 
-              lineHeight: '1.8', 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            style={{
+              fontSize: '22px',
+              color: '#cbd5e0',
+              maxWidth: '700px',
+              lineHeight: '1.8',
               margin: '0 auto',
               fontWeight: '400'
             }}
           >
-            새로운 버추얼 엔터테인먼트의 시작,
+            버추얼 크리에이터로 함께 성장할
             <br />
-            T&L STUDIO가 준비 중입니다.
+            첫 번째 멤버를 기다립니다.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -152,15 +152,15 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            style={{ 
-              display: 'flex', 
-              gap: '20px', 
-              justifyContent: 'center', 
-              marginTop: '50px' 
+            style={{
+              display: 'flex',
+              gap: '20px',
+              justifyContent: 'center',
+              marginTop: '50px'
             }}
           >
             <motion.button
-              onClick={() => navigate('/talents')}
+              onClick={() => navigate('/apply')}
               whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(102, 126, 234, 0.4)' }}
               whileTap={{ scale: 0.98 }}
               style={{
@@ -176,13 +176,13 @@ const Home = () => {
                 boxShadow: '0 4px 20px rgba(102, 126, 234, 0.3)'
               }}
             >
-              크리에이터 만나기
+              1기생 지원하기
             </motion.button>
 
             <motion.button
               onClick={() => navigate('/about')}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 borderColor: '#a78bfa',
                 backgroundColor: 'rgba(167, 139, 250, 0.1)'
               }}
@@ -200,18 +200,18 @@ const Home = () => {
                 backdropFilter: 'blur(10px)'
               }}
             >
-              더 알아보기
+              프로젝트 소개 보기
             </motion.button>
           </motion.div>
         </motion.div>
 
-        {/* Enhanced scroll indicator */}
-        <motion.div 
-          animate={{ y: [0, 15, 0] }} 
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} 
-          style={{ 
-            position: 'absolute', 
-            bottom: '60px', 
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 15, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: 'absolute',
+            bottom: '60px',
             zIndex: 2,
             display: 'flex',
             flexDirection: 'column',
@@ -219,18 +219,18 @@ const Home = () => {
             gap: '10px'
           }}
         >
-          <div style={{ 
-            fontSize: '11px', 
-            letterSpacing: '3px', 
+          <div style={{
+            fontSize: '11px',
+            letterSpacing: '3px',
             color: 'rgba(255, 255, 255, 0.5)',
             fontWeight: '600'
           }}>
             SCROLL
           </div>
-          <div style={{ 
-            width: '2px', 
-            height: '50px', 
-            background: 'linear-gradient(to bottom, rgba(167, 139, 250, 0.8), transparent)', 
+          <div style={{
+            width: '2px',
+            height: '50px',
+            background: 'linear-gradient(to bottom, rgba(167, 139, 250, 0.8), transparent)',
             borderRadius: '2px',
             position: 'relative'
           }}>
@@ -253,35 +253,31 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Latest Release Section */}
-      <LatestReleaseSection />
+      {/* First Project Section */}
+      <FirstProjectSection />
 
-      {/* Quick Stats Section */}
-      <QuickStatsSection />
+      {/* Recruitment Cards Section */}
+      <RecruitSection />
     </div>
   );
 };
 
-const LatestReleaseSection = () => {
+const FirstProjectSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const navigate = useNavigate();
-  const showPreparingMessage = () => {
-    window.alert('준비 중입니다.');
-  };
 
   return (
-    <section 
+    <section
       ref={ref}
-      style={{ 
-        padding: '150px 60px', 
+      style={{
+        padding: '150px 60px',
         background: 'linear-gradient(to bottom, #0a0a0f 0%, #1a0f2e 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* Background decoration */}
-      <div className="latest-release-layout" style={{ 
+      <div style={{
         position: 'absolute',
         top: '20%',
         right: '-10%',
@@ -293,17 +289,17 @@ const LatestReleaseSection = () => {
         zIndex: 0
       }} />
 
-      <div style={{ 
-        maxWidth: '1200px', 
-        margin: '0 auto', 
-        display: 'flex', 
-        gap: '80px', 
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        gap: '80px',
         alignItems: 'center',
         position: 'relative',
         zIndex: 1
       }}>
         {/* Text Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -326,65 +322,66 @@ const LatestReleaseSection = () => {
               fontWeight: '600'
             }}
           >
-            NEW RELEASE
+            DEBUT PROJECT
           </motion.div>
 
-          <h2 style={{ 
-            fontSize: '48px', 
-            fontWeight: '700', 
-            marginBottom: '20px', 
+          <h2 style={{
+            fontSize: '48px',
+            fontWeight: '700',
+            marginBottom: '20px',
             color: '#fff',
             lineHeight: '1.2'
           }}>
-            LATEST RELEASE
+            FIRST PROJECT
           </h2>
 
-          <h3 style={{ 
-            fontSize: '28px', 
-            color: '#a78bfa', 
+          <h3 style={{
+            fontSize: '26px',
+            color: '#a78bfa',
             marginBottom: '25px',
             fontWeight: '600'
           }}>
-            Universe 1st Single [STARDUST]
+            T&L STUDIO 1기생 데뷔 프로젝트
           </h3>
 
-          <p style={{ 
-            color: '#cbd5e0', 
-            lineHeight: '1.9', 
+          <p style={{
+            color: '#cbd5e0',
+            lineHeight: '1.9',
             marginBottom: '40px',
             fontSize: '17px',
             maxWidth: '500px'
           }}>
-            무한한 우주 속에서 빛나는 별가루처럼, 여러분의 마음속에 영원히 남을 첫 번째 이야기. 지금 바로 확인하세요.
+            1기생과 함께 만들어갈 첫 번째 오리지널 프로젝트입니다.
+            데뷔 후 공개될 콘텐츠와 음악을 함께 준비하고 있습니다.
           </p>
 
           <div className="latest-release-actions" style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-            <motion.button 
-              onClick={showPreparingMessage}
-              whileHover={{ 
+            <motion.button
+              onClick={() => navigate('/apply')}
+              whileHover={{
                 scale: 1.05,
                 boxShadow: '0 10px 40px rgba(102, 126, 234, 0.4)'
               }}
               whileTap={{ scale: 0.98 }}
-              style={{ 
-                padding: '16px 40px', 
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
-                color: '#fff', 
-                border: 'none', 
-                borderRadius: '30px', 
-                fontSize: '16px', 
-                fontWeight: '600', 
+              style={{
+                padding: '16px 40px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '30px',
+                fontSize: '16px',
+                fontWeight: '600',
                 cursor: 'pointer',
                 boxShadow: '0 4px 20px rgba(102, 126, 234, 0.3)',
                 transition: 'all 0.3s'
               }}
             >
-              WATCH NOW
+              1기생 지원하기
             </motion.button>
 
             <motion.button
-              onClick={() => navigate('/content')}
-              whileHover={{ 
+              onClick={() => navigate('/about')}
+              whileHover={{
                 scale: 1.05,
                 borderColor: '#a78bfa',
                 color: '#a78bfa'
@@ -402,91 +399,61 @@ const LatestReleaseSection = () => {
                 transition: 'all 0.3s'
               }}
             >
-              전체 음원 보기
+              프로젝트 소개
             </motion.button>
           </div>
         </motion.div>
 
-        {/* Video Placeholder */}
-        <motion.div 
+        {/* Visual Placeholder */}
+        <motion.div
           className="release-placeholder"
-          role="button"
-          tabIndex={0}
-          onClick={showPreparingMessage}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              showPreparingMessage();
-            }
-          }}
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ scale: 1.02 }}
-          style={{ 
-            flex: 1, 
-            height: '400px', 
-            background: 'linear-gradient(135deg, #1e1e3f 0%, #2d3748 100%)', 
-            borderRadius: '24px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
+          style={{
+            flex: 1,
+            height: '400px',
+            background: 'linear-gradient(135deg, #1e1e3f 0%, #2d3748 100%)',
+            borderRadius: '24px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
             border: '1px solid rgba(102, 126, 234, 0.2)',
             position: 'relative',
             overflow: 'hidden',
-            cursor: 'pointer',
             boxShadow: '0 10px 50px rgba(0, 0, 0, 0.3)'
           }}
         >
-          {/* Video thumbnail overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))',
-            opacity: 0.6
+            background: 'linear-gradient(45deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08))',
           }} />
 
-          {/* Play button */}
           <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              width: '80px',
-              height: '80px',
-              borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.9)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
-              cursor: 'pointer',
-              zIndex: 1
-            }}
+            animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            style={{ fontSize: '80px', position: 'relative', zIndex: 1, filter: 'drop-shadow(0 0 30px rgba(102,126,234,0.6))' }}
           >
-            <div style={{ 
-              width: 0,
-              height: 0,
-              borderLeft: '20px solid #667eea',
-              borderTop: '12px solid transparent',
-              borderBottom: '12px solid transparent',
-              marginLeft: '4px'
-            }} />
+            ✨
           </motion.div>
 
           <div style={{
             position: 'absolute',
             bottom: '24px',
-            left: '24px',
+            left: 0,
+            right: 0,
+            textAlign: 'center',
             zIndex: 1,
-            color: 'rgba(255, 255, 255, 0.62)',
+            color: 'rgba(255, 255, 255, 0.5)',
             fontSize: '13px',
-            letterSpacing: '1px',
+            letterSpacing: '1.5px',
             fontWeight: '600'
           }}>
-            VIDEO COMING SOON
+            1기생 합류 후 공개
           </div>
 
-          {/* Corner label */}
           <div style={{
             position: 'absolute',
             top: '20px',
@@ -500,7 +467,7 @@ const LatestReleaseSection = () => {
             fontWeight: '600',
             border: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
-            MV
+            PROJECT
           </div>
         </motion.div>
       </div>
@@ -508,15 +475,15 @@ const LatestReleaseSection = () => {
   );
 };
 
-const QuickStatsSection = () => {
+const RecruitSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
-    { number: '12+', label: '(예시)_크리에이터', icon: '🎭' },
-    { number: '500K+', label: '(예시)_구독자', icon: '💫' },
-    { number: '50+', label: '(예시)_발매곡', icon: '🎵' },
-    { number: '100+', label: '(예시)_방송 시간/주', icon: '📺' }
+  const cards = [
+    { icon: '⭐', label: '1ST GENERATION', sublabel: '1기생 모집 진행 중' },
+    { icon: '🎭', label: 'CREATOR PROJECT', sublabel: '버추얼 크리에이터 프로젝트' },
+    { icon: '🚀', label: 'DEBUT READY', sublabel: '데뷔 준비 과정 함께 지원' },
+    { icon: '💜', label: 'FAN FIRST', sublabel: '팬과 함께 성장하는 방향' },
   ];
 
   return (
@@ -538,7 +505,7 @@ const QuickStatsSection = () => {
             gap: '40px'
           }}
         >
-          {stats.map((stat, i) => (
+          {cards.map((card, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -552,28 +519,29 @@ const QuickStatsSection = () => {
                 border: '1px solid rgba(255, 255, 255, 0.05)',
                 borderRadius: '20px',
                 transition: 'all 0.3s',
-                cursor: 'pointer'
+                cursor: 'default'
               }}
             >
-              <div style={{ fontSize: '40px', marginBottom: '15px' }}>
-                {stat.icon}
+              <div style={{ fontSize: '40px', marginBottom: '18px' }}>
+                {card.icon}
               </div>
               <div style={{
-                fontSize: '40px',
+                fontSize: '15px',
                 fontWeight: '700',
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                marginBottom: '10px'
+                marginBottom: '10px',
+                letterSpacing: '0.5px'
               }}>
-                {stat.number}
+                {card.label}
               </div>
               <div style={{
-                fontSize: '14px',
+                fontSize: '13px',
                 color: '#a0aec0',
-                letterSpacing: '1px'
+                lineHeight: '1.5'
               }}>
-                {stat.label}
+                {card.sublabel}
               </div>
             </motion.div>
           ))}

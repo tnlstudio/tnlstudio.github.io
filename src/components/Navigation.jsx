@@ -17,8 +17,12 @@ const Navigation = () => {
   const menus = [
     { name: 'HOME', path: '/' },
     { name: 'ABOUT', path: '/about' },
-    { name: 'TALENTS', path: '/talents' },
-    { name: 'CONTENT', path: '/content' }
+    { name: 'RECRUIT', path: '/talents' },
+    { name: 'CONTENT', path: '/content' },
+    { name: 'FANWORKS', path: '/fanworks' },
+    { name: 'ROADMAP', path: '/roadmap' },
+    { name: 'FAQ', path: '/faq' },
+    { name: '지원하기', path: '/apply', cta: true }
   ];
 
   return (
@@ -80,9 +84,38 @@ const Navigation = () => {
         </NavLink>
 
         {/* Menu Items */}
-        <div className="site-nav-menu" style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
+        <div className="site-nav-menu" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           {menus.map((item) => {
             const isActive = location.pathname === item.path;
+
+            if (item.cta) {
+              return (
+                <NavLink key={item.name} to={item.path} style={{ textDecoration: 'none' }}>
+                  <motion.div
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.97 }}
+                    style={{
+                      padding: '9px 22px',
+                      borderRadius: '22px',
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      letterSpacing: '0.5px',
+                      cursor: 'pointer',
+                      background: isActive
+                        ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                        : 'rgba(167, 139, 250, 0.1)',
+                      border: isActive ? 'none' : '1px solid rgba(167, 139, 250, 0.3)',
+                      color: isActive ? '#fff' : '#a78bfa',
+                      boxShadow: isActive ? '0 4px 16px rgba(102, 126, 234, 0.35)' : 'none',
+                      transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+                    }}
+                  >
+                    {item.name}
+                  </motion.div>
+                </NavLink>
+              );
+            }
+
             return (
               <NavLink
                 key={item.name}

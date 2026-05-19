@@ -106,8 +106,8 @@ const HeroSection = () => {
           lineHeight: '1.8',
           color: '#cbd5e0'
         }}>
-          새로운 세계에서의 즐거움을 제공하는<br />
-          차세대 VTuber 매니지먼트 스튜디오
+          크리에이터와 함께 첫 번째 팀을 만들어가는<br />
+          신규 버추얼 크리에이터 프로젝트
         </p>
       </motion.div>
     </section>
@@ -153,9 +153,9 @@ const VisionSection = () => {
             maxWidth: '900px',
             margin: '0 auto'
           }}>
-            V-AGENCY는 단순한 매니지먼트를 넘어 하나의 거대한 유니버스를 창조합니다.
+            T&L STUDIO는 크리에이터와 함께 새로운 버추얼 유니버스를 만들어갑니다.
             <br />
-            각 크리에이터가 가진 고유의 스토리와 세계관이 맞물려
+            각자의 스토리와 세계관이 하나의 큰 이야기로 연결되어
             <br />
             팬 여러분께 몰입감과 감동을 선사합니다.
           </p>
@@ -313,7 +313,7 @@ const TechnologySection = () => {
             margin: '0 auto',
             lineHeight: '1.8'
           }}>
-            최첨단 기술로 구현하는 차세대 버추얼 프로덕션
+            함께 구현해 나갈 버추얼 프로덕션 방향
           </p>
         </motion.div>
 
@@ -335,7 +335,7 @@ const TechnologySection = () => {
               marginBottom: '25px',
               fontWeight: '700'
             }}>
-              State-of-the-art Studio
+              함께 만들어갈 스튜디오
             </h3>
             <p style={{
               color: '#cbd5e0',
@@ -343,17 +343,16 @@ const TechnologySection = () => {
               marginBottom: '40px',
               fontSize: '16px'
             }}>
-              자체 구축한 모션 캡처 스튜디오와 실시간 렌더링 시스템을 통해
-              크리에이터의 미세한 표정과 움직임까지 완벽하게 구현합니다.
-              최신 기술과 전문 인력이 결합되어 최고 품질의 방송을 제공합니다.
+              1기생과 함께 구축해 나갈 버추얼 프로덕션 환경입니다.
+              최적의 방송 퀄리티를 위한 기술 인프라를 단계적으로 준비하고 있습니다.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               {[
-                { icon: '🎯', title: '고정밀 광학식 모션 캡처 시스템', desc: '1mm 단위의 정밀한 움직임 포착' },
-                { icon: '😊', title: '실시간 페이셜 캡처 연동', desc: '52개 표정 포인트 실시간 추적' },
-                { icon: '🎨', title: '3D 모델링 및 물리 엔진 적용', desc: 'Unity & Unreal Engine 기반' },
-                { icon: '📡', title: '4K 실시간 스트리밍 지원', desc: '초저지연 방송 시스템' }
+                { icon: '🎯', title: '버추얼 모션 캡처 시스템', desc: '도입 예정 · 준비 중' },
+                { icon: '😊', title: '실시간 페이셜 캡처', desc: '도입 예정 · 준비 중' },
+                { icon: '🎨', title: '3D 모델링 및 렌더링', desc: '구축 방향 논의 중' },
+                { icon: '📡', title: '고품질 스트리밍', desc: '목표 기술 방향' }
               ].map((tech, idx) => (
                 <motion.div
                   key={idx}

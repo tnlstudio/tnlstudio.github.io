@@ -332,3 +332,104 @@ body {
     font-size: 30px !important;
   }
 }
+
+/* ── Apply page ── */
+@media (max-width: 768px) {
+  .apply-hero-title {
+    font-size: 44px !important;
+    letter-spacing: 0 !important;
+  }
+
+  .apply-hero-sub {
+    font-size: 16px !important;
+  }
+
+  .apply-form-section {
+    padding: 0 20px 80px !important;
+  }
+
+  .apply-form-card {
+    padding: 32px 22px !important;
+  }
+
+  .apply-form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .apply-category-row {
+    gap: 10px !important;
+  }
+
+  .apply-category-row button {
+    padding: 11px 24px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .apply-hero-title {
+    font-size: 36px !important;
+  }
+
+  .apply-category-row {
+    flex-wrap: wrap;
+  }
+
+  .apply-category-row button {
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    flex: 1 0 auto;
+  }
+}
+
+/* ── Fanworks page ── */
+@media (max-width: 768px) {
+  .fanworks-hero-title {
+    font-size: 44px !important;
+  }
+
+  .fanworks-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .fanworks-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Roadmap page ── */
+@media (max-width: 768px) {
+  .roadmap-hero-title {
+    font-size: 44px !important;
+  }
+
+  .roadmap-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── FAQ page ── */
+@media (max-width: 768px) {
+  .faq-hero-title {
+    font-size: 52px !important;
+  }
+
+  .faq-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── Privacy page ── */
+@media (max-width: 768px) {
+  .privacy-hero-title {
+    font-size: 38px !important;
+  }
+
+  .privacy-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
