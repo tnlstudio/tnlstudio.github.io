@@ -25,7 +25,7 @@ const Footer = () => {
               T&L STUDIO
             </h3>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', marginBottom: '16px' }}>
-              버추얼 크리에이터 1기생과 제작 파트너를 모집하는 신규 VTuber 프로젝트
+              다양한 재능을 가진 사람들과 함께 성장하는 크리에이터 스튜디오
             </p>
             <div style={{
               display: 'inline-block',
@@ -36,7 +36,7 @@ const Footer = () => {
               fontSize: '12px', color: '#a78bfa',
               fontWeight: '600', letterSpacing: '1px',
             }}>
-              1기생 모집 중
+              멤버 및 제작 파트너 모집 중
             </div>
           </div>
 
@@ -53,7 +53,6 @@ const Footer = () => {
                 { name: 'Content', path: '/content' },
                 { name: '지원하기', path: '/apply' },
                 { name: 'Fanworks', path: '/fanworks' },
-                { name: 'Roadmap', path: '/roadmap' },
                 { name: 'FAQ', path: '/faq' },
                 { name: '정보 처리 안내', path: '/privacy' },
               ].map((item) => (
@@ -82,7 +81,7 @@ const Footer = () => {
               RECRUITMENT
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {['스트리머 (1기생)', '편집자', '기획자'].map((item) => (
+              {['크리에이터', '편집자', '기획자', '일러스트레이터', '개발자'].map((item) => (
                 <div key={item} style={{
                   display: 'flex', alignItems: 'center', gap: '8px',
                   fontSize: '14px', color: 'rgba(255,255,255,0.5)',
@@ -100,7 +99,7 @@ const Footer = () => {
               OFFICIAL CHANNELS
             </h4>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', lineHeight: '1.75', marginBottom: '20px' }}>
-              공식 채널은 1기생 공개와 함께 오픈됩니다.
+              공식 채널은 콘텐츠 공개 일정에 맞춰 순차적으로 오픈됩니다.
             </p>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}>
               {[
@@ -150,7 +149,7 @@ const Footer = () => {
             animation: 'none',
           }} />
           <p style={{ fontSize: '14px', color: '#a0aec0', margin: 0, lineHeight: '1.6' }}>
-            현재 T&L STUDIO는 <span style={{ color: '#a78bfa', fontWeight: '600' }}>1기생 및 제작 파트너</span>를 모집 중입니다.
+            현재 T&L STUDIO는 <span style={{ color: '#a78bfa', fontWeight: '600' }}>크리에이터 및 제작 파트너</span>를 모집 중입니다.
             관심 있으신 분은 지원하기 페이지를 통해 지원서를 제출해 주세요.
           </p>
         </div>
@@ -169,7 +168,7 @@ const Footer = () => {
             © 2026 T&L STUDIO. All rights reserved.
           </p>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', margin: 0 }}>
-            신규 버추얼 크리에이터 프로젝트 · 1기생 모집 진행 중
+            함께 성장하는 크리에이터 스튜디오 · 멤버 및 제작 파트너 모집 중
           </p>
         </div>
       </div>

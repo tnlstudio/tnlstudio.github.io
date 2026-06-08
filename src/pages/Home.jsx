@@ -102,7 +102,7 @@ const Home = () => {
               fontWeight: '600'
             }}
           >
-            1ST GENERATION RECRUIT
+            OPEN CREATOR STUDIO
           </motion.div>
 
           {/* Main Title */}
@@ -141,9 +141,9 @@ const Home = () => {
               fontWeight: '400'
             }}
           >
-            버추얼 크리에이터로 함께 성장할
+            함께 성장할 사람을 찾습니다.
             <br />
-            첫 번째 멤버를 기다립니다.
+            다양한 재능을 가진 사람들이 자신의 가능성을 펼칠 수 있는 크리에이터 스튜디오입니다.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -176,7 +176,7 @@ const Home = () => {
                 boxShadow: '0 4px 20px rgba(102, 126, 234, 0.3)'
               }}
             >
-              1기생 지원하기
+              지원하기
             </motion.button>
 
             <motion.button
@@ -322,7 +322,7 @@ const FirstProjectSection = () => {
               fontWeight: '600'
             }}
           >
-            DEBUT PROJECT
+            CREATOR PROJECT
           </motion.div>
 
           <h2 style={{
@@ -332,7 +332,7 @@ const FirstProjectSection = () => {
             color: '#fff',
             lineHeight: '1.2'
           }}>
-            FIRST PROJECT
+            GROW TOGETHER
           </h2>
 
           <h3 style={{
@@ -341,7 +341,7 @@ const FirstProjectSection = () => {
             marginBottom: '25px',
             fontWeight: '600'
           }}>
-            T&L STUDIO 1기생 데뷔 프로젝트
+            새로운 멤버를 기다립니다
           </h3>
 
           <p style={{
@@ -351,8 +351,8 @@ const FirstProjectSection = () => {
             fontSize: '17px',
             maxWidth: '500px'
           }}>
-            1기생과 함께 만들어갈 첫 번째 오리지널 프로젝트입니다.
-            데뷔 후 공개될 콘텐츠와 음악을 함께 준비하고 있습니다.
+            T&L Studio는 다양한 재능을 가진 사람들이 자신의 가능성을 펼치고,
+            함께 성장할 수 있는 크리에이터 스튜디오입니다.
           </p>
 
           <div className="latest-release-actions" style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
@@ -376,7 +376,7 @@ const FirstProjectSection = () => {
                 transition: 'all 0.3s'
               }}
             >
-              1기생 지원하기
+              지원하기
             </motion.button>
 
             <motion.button
@@ -451,7 +451,7 @@ const FirstProjectSection = () => {
             letterSpacing: '1.5px',
             fontWeight: '600'
           }}>
-            1기생 합류 후 공개
+            새로운 멤버와 함께 공개
           </div>
 
           <div style={{
@@ -480,9 +480,9 @@ const RecruitSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const cards = [
-    { icon: '⭐', label: '1ST GENERATION', sublabel: '1기생 모집 진행 중' },
-    { icon: '🎭', label: 'CREATOR PROJECT', sublabel: '버추얼 크리에이터 프로젝트' },
-    { icon: '🚀', label: 'DEBUT READY', sublabel: '데뷔 준비 과정 함께 지원' },
+    { icon: '⭐', label: 'OPEN RECRUIT', sublabel: '새로운 멤버 모집 진행 중' },
+    { icon: '🎭', label: 'CREATOR STUDIO', sublabel: '다양한 재능이 모이는 공간' },
+    { icon: '🚀', label: 'GROW TOGETHER', sublabel: '활동 준비 과정을 함께 지원' },
     { icon: '💜', label: 'FAN FIRST', sublabel: '팬과 함께 성장하는 방향' },
   ];
 

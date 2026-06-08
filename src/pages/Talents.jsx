@@ -23,6 +23,7 @@ const positions = [
       '감성적인 콘텐츠를 즐기는 분',
     ],
     tags: ['#보컬', '#음악', '#감성콘텐츠'],
+    guide: '지원서에는 보컬 샘플, 커버 영상, 음악 활동 경험을 함께 적어주세요.',
   },
   {
     id: 2,
@@ -44,6 +45,7 @@ const positions = [
       '팬과의 소통을 즐기는 분',
     ],
     tags: ['#게임', '#토크', '#소통'],
+    guide: '지원서에는 진행 경험, 즐겨 다루는 게임 장르, 토크 콘텐츠 강점을 적어주세요.',
   },
   {
     id: 3,
@@ -65,6 +67,7 @@ const positions = [
       '독창적인 음악 세계관을 가진 분',
     ],
     tags: ['#음악제작', '#아티스트', '#창작'],
+    guide: '지원서에는 작업물 링크, 사용 가능한 제작 도구, 음악 활동 방향을 적어주세요.',
   },
   {
     id: 4,
@@ -86,6 +89,7 @@ const positions = [
       '팀워크를 즐기는 분',
     ],
     tags: ['#버라이어티', '#예능감', '#도전'],
+    guide: '지원서에는 자신 있는 콘텐츠 장르와 보여주고 싶은 캐릭터성을 적어주세요.',
   },
   {
     id: 5,
@@ -107,6 +111,117 @@ const positions = [
       '이야기를 만들고 나누는 것을 좋아하는 분',
     ],
     tags: ['#창작', '#세계관', '#스토리텔링'],
+    guide: '지원서에는 창작물, 글 또는 일러스트 포트폴리오가 있다면 함께 적어주세요.',
+  },
+  {
+    id: 6,
+    title: '기획자',
+    role: '콘텐츠 · 세계관 기획',
+    color: '#f6ad55',
+    category: 'creativeTeam',
+    icon: '🧭',
+    concept: '기획 · 구조화',
+    seeking: '콘텐츠 기획, 세계관 정리, 방송 아이디어 구성에 관심 있는 분',
+    activities: [
+      '콘텐츠 아이디어 정리 및 방송 흐름 구성',
+      '세계관·캐릭터 설정 문서화',
+      '프로젝트 일정과 제작 흐름 정리',
+    ],
+    preferred: [
+      '문서 정리와 일정 흐름을 잘 잡는 분',
+      '콘텐츠 레퍼런스 분석을 즐기는 분',
+      '팀원과 명확하게 소통할 수 있는 분',
+    ],
+    tags: ['#기획', '#세계관', '#문서정리'],
+    guide: '지원서에는 기획서, 문서 샘플, 참여한 콘텐츠 프로젝트가 있다면 함께 적어주세요.',
+  },
+  {
+    id: 7,
+    title: '일러스트레이터',
+    role: '캐릭터 · 썸네일 비주얼',
+    color: '#f687b3',
+    category: 'creativeTeam',
+    icon: '🎨',
+    concept: '비주얼 · 표현',
+    seeking: '캐릭터 일러스트, 팬아트풍 이미지, 썸네일 이미지 제작에 관심 있는 분',
+    activities: [
+      '캐릭터 일러스트 및 키비주얼 제작',
+      '콘텐츠 썸네일과 홍보 이미지 제작',
+      '세계관 분위기에 맞는 비주얼 방향 제안',
+    ],
+    preferred: [
+      '포트폴리오 링크 제출 가능자',
+      '캐릭터 디자인 또는 팬아트 작업 경험',
+      '일정에 맞춰 결과물을 정리할 수 있는 분',
+    ],
+    tags: ['#일러스트', '#캐릭터', '#썸네일'],
+    guide: '지원서에는 포트폴리오 링크와 선호 작업 범위를 함께 적어주세요.',
+  },
+  {
+    id: 8,
+    title: '영상 편집자',
+    role: '쇼츠 · 하이라이트 · 영상 편집',
+    color: '#63b3ed',
+    category: 'creativeTeam',
+    icon: '🎬',
+    concept: '편집 · 리듬',
+    seeking: '쇼츠, 하이라이트, 커버 영상, 방송 편집에 관심 있는 분',
+    activities: [
+      '쇼츠 및 하이라이트 클립 편집',
+      '커버 영상과 콘텐츠 영상 편집',
+      '자막·효과·템포를 살린 영상 구성',
+    ],
+    preferred: [
+      'Premiere Pro, After Effects, DaVinci Resolve 등 사용 가능자',
+      '숏폼 콘텐츠 편집 경험',
+      '영상 톤과 리듬을 세밀하게 조정할 수 있는 분',
+    ],
+    tags: ['#영상편집', '#쇼츠', '#하이라이트'],
+    guide: '지원서에는 편집 포트폴리오 링크와 사용 가능한 편집 툴을 적어주세요.',
+  },
+  {
+    id: 9,
+    title: '개발자',
+    role: '웹 · 방송 도구 · 자동화',
+    color: '#68d391',
+    category: 'creativeTeam',
+    icon: '💻',
+    concept: '도구 · 자동화',
+    seeking: '웹사이트, 방송 도구, 자동화 도구, 팬 커뮤니티 기능 제작에 관심 있는 분',
+    activities: [
+      '공식 웹사이트 기능 개선',
+      '방송 운영에 필요한 자동화 도구 제작',
+      'Discord Bot 또는 팬 커뮤니티 기능 개발',
+    ],
+    preferred: [
+      'React, Python, Discord Bot, 자동화 경험',
+      '작은 기능을 안정적으로 완성할 수 있는 분',
+      '운영자가 쓰기 쉬운 도구를 고민하는 분',
+    ],
+    tags: ['#개발', '#React', '#자동화'],
+    guide: '지원서에는 GitHub, 포트폴리오, 제작한 도구나 프로젝트 링크를 적어주세요.',
+  },
+  {
+    id: 10,
+    title: '매니저 / 운영 지원자',
+    role: '일정 · 커뮤니티 · 자료 정리',
+    color: '#b794f4',
+    category: 'support',
+    icon: '🗂️',
+    concept: '운영 · 지원',
+    seeking: '일정 관리, 커뮤니티 운영, 자료 정리, 지원자 응대에 관심 있는 분',
+    activities: [
+      '콘텐츠 일정과 자료 정리',
+      '커뮤니티 운영 보조',
+      '지원자 응대 및 진행 상황 관리',
+    ],
+    preferred: [
+      '꼼꼼하고 책임감 있는 분',
+      '기본적인 문서 정리와 커뮤니케이션이 가능한 분',
+      '운영 흐름을 차분하게 관리할 수 있는 분',
+    ],
+    tags: ['#운영지원', '#매니저', '#커뮤니티'],
+    guide: '지원서에는 운영 경험, 가능한 업무 범위, 주로 사용할 수 있는 시간대를 적어주세요.',
   },
 ];
 
@@ -115,6 +230,8 @@ const categories = [
   { id: 'vocal', name: 'VOCAL · MUSIC', color: '#ff7675' },
   { id: 'game', name: 'GAME · TALK', color: '#74b9ff' },
   { id: 'variety', name: 'CREATIVE · VARIETY', color: '#00b894' },
+  { id: 'creativeTeam', name: 'CREATIVE TEAM', color: '#f6ad55' },
+  { id: 'support', name: 'SUPPORT', color: '#b794f4' },
 ];
 
 const Talents = () => {
@@ -156,7 +273,7 @@ const Talents = () => {
             marginBottom: '25px',
             fontWeight: '600',
           }}>
-            1ST GENERATION RECRUIT
+            OPEN RECRUIT
           </div>
 
           <h2 style={{
@@ -168,7 +285,7 @@ const Talents = () => {
             WebkitTextFillColor: 'transparent',
             lineHeight: '1.1',
           }}>
-            1기생 모집
+            함께할 사람을 찾습니다
           </h2>
 
           <p style={{
@@ -178,8 +295,8 @@ const Talents = () => {
             margin: '0 auto',
             lineHeight: '1.8',
           }}>
-            T&L STUDIO와 함께 첫 번째 팀을 만들어갈<br />
-            5가지 포지션에서 여러분을 기다립니다.
+            크리에이터와 제작 파트너가 함께 성장할 수 있도록<br />
+            다양한 포지션에서 여러분을 기다립니다.
           </p>
         </motion.div>
 
@@ -469,7 +586,7 @@ const Talents = () => {
                     borderRadius: '15px', fontSize: '11px', color: '#a78bfa',
                     letterSpacing: '2px', marginBottom: '14px', fontWeight: '700',
                   }}>
-                    1기생 모집
+                    RECRUIT
                   </div>
 
                   <h2 style={{
@@ -560,6 +677,22 @@ const Talents = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+
+                {/* Guide */}
+                <div style={{
+                  padding: '18px 20px',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: '16px',
+                  marginBottom: '28px',
+                }}>
+                  <h4 style={{ color: '#fff', fontSize: '15px', margin: '0 0 10px 0', fontWeight: '700' }}>
+                    지원 안내
+                  </h4>
+                  <p style={{ color: '#a0aec0', fontSize: '14px', lineHeight: '1.7', margin: 0 }}>
+                    {selectedPosition.guide}
+                  </p>
                 </div>
 
                 {/* Action Buttons */}

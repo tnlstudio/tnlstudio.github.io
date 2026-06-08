@@ -11,12 +11,12 @@ const Content = () => {
   const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
   const contentLineup = [
-    { type: 'MUSIC VIDEO', title: 'Original Song Project', desc: '1기생 데뷔 오리지널 곡', color: '#667eea', icon: '🎵' },
+    { type: 'MUSIC VIDEO', title: 'Original Song Project', desc: '소속 크리에이터와 함께 만들어갈 오리지널 곡', color: '#667eea', icon: '🎵' },
     { type: 'COVER', title: 'Cover Contents', desc: '인기곡 커버 및 편곡 영상', color: '#ff7675', icon: '🎤' },
     { type: 'LIVE', title: 'Live Streaming', desc: '팬과 소통하는 정기 라이브', color: '#a78bfa', icon: '📡' },
     { type: 'SHORTS', title: 'Short-form Clips', desc: '숏폼 클립 & 하이라이트', color: '#74b9ff', icon: '✂️' },
-    { type: 'MUSIC VIDEO', title: 'Debut Showcase', desc: '1기생 데뷔 쇼케이스 영상', color: '#fd79a8', icon: '⭐' },
-    { type: 'LIVE', title: 'Behind Story', desc: '데뷔 준비 과정 비하인드', color: '#00b894', icon: '📖' },
+    { type: 'MUSIC VIDEO', title: 'Creator Showcase', desc: '소속 크리에이터 쇼케이스 영상', color: '#fd79a8', icon: '⭐' },
+    { type: 'LIVE', title: 'Behind Story', desc: '콘텐츠 준비 과정 비하인드', color: '#00b894', icon: '📖' },
   ];
 
   const scheduleData = {
@@ -75,7 +75,7 @@ const Content = () => {
                 color: 'rgba(255,255,255,0.45)',
                 letterSpacing: '2px', fontWeight: '600',
               }}>
-                1기생 합류 후 공개
+                소속 크리에이터와 함께 공개
               </div>
             </div>
 
@@ -88,14 +88,14 @@ const Content = () => {
                 fontSize: '12px', fontWeight: '700',
                 marginBottom: '20px', letterSpacing: '1px',
               }}>
-                DEBUT PROJECT
+                CREATOR PROJECT
               </div>
               <h1 style={{ fontSize: '42px', fontWeight: '800', marginBottom: '16px', lineHeight: '1.25' }}>
-                1기생과 함께 만들어갈<br />첫 번째 오리지널 프로젝트
+                소속 크리에이터와 함께 만들어갈<br />오리지널 콘텐츠 프로젝트
               </h1>
               <p style={{ color: '#cbd5e0', fontSize: '16px', lineHeight: '1.7', marginBottom: '28px' }}>
-                데뷔 후 공개될 오리지널 콘텐츠를 준비하고 있습니다.<br />
-                1기생 합류와 함께 모든 것이 시작됩니다.
+                다양한 재능을 가진 크리에이터와 제작 파트너가 함께<br />
+                음악, 영상, 라이브 콘텐츠를 준비하고 있습니다.
               </p>
               <motion.button
                 onClick={() => navigate('/apply')}
@@ -110,7 +110,7 @@ const Content = () => {
                   boxShadow: '0 4px 20px rgba(102,126,234,0.35)',
                 }}
               >
-                1기생 지원하기
+                지원하기
               </motion.button>
             </div>
           </div>
@@ -124,7 +124,7 @@ const Content = () => {
           <div className="content-section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '16px' }}>
             <div>
               <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '8px' }}>CONTENT LINEUP</h2>
-              <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>1기생 데뷔 후 공개될 예정 콘텐츠</p>
+              <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>소속 크리에이터와 함께 공개할 예정 콘텐츠</p>
             </div>
             <div className="content-filter-row" style={{ display: 'flex', gap: '15px' }}>
               {categories.map(cat => (
@@ -199,7 +199,7 @@ const Content = () => {
           <div style={{ marginBottom: '16px' }}>
             <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '8px' }}>PLANNED CONTENT</h2>
             <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>
-              데뷔 후 운영 예정인 콘텐츠 방향 — 1기생 합류 후 실제 스케줄이 공개됩니다.
+              앞으로 운영할 콘텐츠 방향 — 소속 크리에이터와 함께 실제 스케줄을 공개합니다.
             </p>
           </div>
           <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '40px' }} />

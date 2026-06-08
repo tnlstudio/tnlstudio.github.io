@@ -19,7 +19,7 @@ const cautionItems = [
   { title: '공식 로고 무단 사용', desc: '공식 로고·트레이드마크를 허가 없이 창작물에 삽입 금지' },
 ];
 
-const hashtags = ['#TnLStudio', '#T&L_팬아트', '#TnLFanwork', '#TnL1기생'];
+const hashtags = ['#TnLStudio', '#T&L_팬아트', '#TnLFanwork', '#TnLCreators'];
 
 const FanworksCard = ({ item, color, icon }) => (
   <motion.div
@@ -179,7 +179,7 @@ const Fanworks = () => {
         }}>
           <div style={{ fontSize: '18px', flexShrink: 0, marginTop: '2px' }}>📢</div>
           <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: 0 }}>
-            본 가이드라인은 1기생 데뷔 후 업데이트될 수 있습니다. 변경 사항은 공식 채널을 통해 안내드립니다.
+            본 가이드라인은 T&L Studio 콘텐츠 운영 상황에 따라 업데이트될 수 있습니다. 변경 사항은 공식 채널을 통해 안내드립니다.
             문의 사항이 있으실 경우 지원 폼을 통해 연락해 주세요.
           </p>
         </div>

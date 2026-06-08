@@ -20,7 +20,6 @@ const Navigation = () => {
     { name: 'RECRUIT', path: '/talents' },
     { name: 'CONTENT', path: '/content' },
     { name: 'FANWORKS', path: '/fanworks' },
-    { name: 'ROADMAP', path: '/roadmap' },
     { name: 'FAQ', path: '/faq' },
     { name: '지원하기', path: '/apply', cta: true }
   ];

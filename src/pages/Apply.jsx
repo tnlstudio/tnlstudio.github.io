@@ -22,7 +22,7 @@ const CATEGORY_INFO = {
   },
   streamer: {
     label: '스트리머',
-    formTitle: '[스트리머] 1기생 지원서',
+    formTitle: '[스트리머] 지원서',
     extraFields: [
       { key: 'platform', label: '주요 활동 플랫폼', placeholder: 'YouTube, Twitch, CHZZK, AfreecaTV 등', type: 'text' },
       { key: 'broadcastSchedule', label: '방송 가능 시간대', placeholder: '예) 평일 저녁 20:00 ~ 23:00', type: 'text' },
@@ -266,7 +266,7 @@ const Apply = () => {
               background: 'rgba(167, 139, 250, 0.08)', fontWeight: '600',
             }}
           >
-            1기생 & 제작팀 모집
+            크리에이터 & 제작팀 모집
           </motion.div>
 
           <h1 className="apply-hero-title" style={{
@@ -276,14 +276,14 @@ const Apply = () => {
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             letterSpacing: '-2px', lineHeight: '1.12',
           }}>
-            함께 만들어갈<br />첫 번째 팀
+            함께 성장할<br />사람을 찾습니다
           </h1>
 
           <p className="apply-hero-sub" style={{
             fontSize: '18px', color: '#cbd5e0',
             maxWidth: '540px', margin: '0 auto', lineHeight: '1.85',
           }}>
-            T&L STUDIO 1기생 및 제작팀 모집이 시작되었습니다.<br />
+            T&L STUDIO 크리에이터 및 제작팀 모집이 시작되었습니다.<br />
             지원 분야를 선택하고 지원서를 작성해 주세요.
           </p>
         </motion.div>

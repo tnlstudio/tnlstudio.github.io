@@ -8,7 +8,6 @@ import Talents from './pages/Talents';
 import Content from './pages/Content';
 import Apply from './pages/Apply';
 import Fanworks from './pages/Fanworks';
-import Roadmap from './pages/Roadmap';
 import FAQ from './pages/FAQ';
 import Privacy from './pages/Privacy';
 
@@ -34,7 +33,6 @@ function App() {
             <Route path="/content" element={<Content />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/fanworks" element={<Fanworks />} />
-            <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>

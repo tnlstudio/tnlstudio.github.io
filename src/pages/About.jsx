@@ -120,7 +120,7 @@ const VisionSection = () => {
     {
       delay: 0.65,
       highlight: true,
-      text: '스스로 무한한 가능성을 지닌 당신(Talent)에게\n그 빛을 더욱 밝게 만들어줄 수 있는 행운(Luck)이 되는 것,\n그것이 T&L Studio의 바람입니다.',
+      text: '스스로 무한한 가능성을 지닌 당신(Talent)에게\n그 빛을 더욱 밝게 만들어줄 수 있는 작은 행운(Luck)이 되는 것,\n그것이 T&L Studio의 바람입니다.',
     },
   ];
 
