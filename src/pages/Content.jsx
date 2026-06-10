@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Content = () => {
   const [activeCategory, setActiveCategory] = useState('ALL');
-  const [activeDay, setActiveDay] = useState('MON');
   const navigate = useNavigate();
 
   const categories = ['ALL', 'MUSIC VIDEO', 'COVER', 'LIVE', 'SHORTS'];
-  const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
   const contentLineup = [
     { type: 'MUSIC VIDEO', title: 'Original Song Project', desc: '소속 크리에이터와 함께 만들어갈 오리지널 곡', color: '#667eea', icon: '🎵' },
@@ -18,16 +16,6 @@ const Content = () => {
     { type: 'MUSIC VIDEO', title: 'Creator Showcase', desc: '소속 크리에이터 쇼케이스 영상', color: '#fd79a8', icon: '⭐' },
     { type: 'LIVE', title: 'Behind Story', desc: '콘텐츠 준비 과정 비하인드', color: '#00b894', icon: '📖' },
   ];
-
-  const scheduleData = {
-    MON: [{ type: 'LIVE', title: '정기 라이브 방송', desc: '팬들과 소통하는 주간 정기 라이브', color: '#74b9ff' }],
-    TUE: [{ type: 'MUSIC', title: '음악 콘텐츠', desc: '커버 영상 또는 오리지널 작업 공개', color: '#ff7675' }],
-    WED: [{ type: 'GAME', title: '게임 방송', desc: '다양한 장르의 게임 플레이', color: '#a29bfe' }],
-    THU: [{ type: 'TALK', title: '토크 & 일상', desc: '팬과 함께하는 토크 방송', color: '#fd79a8' }],
-    FRI: [{ type: 'COLLAB', title: '콜라보 콘텐츠', desc: '멤버 합방 또는 외부 콜라보', color: '#00b894' }],
-    SAT: [{ type: 'SHORT', title: '숏폼 업로드', desc: '숏클립 및 하이라이트 영상', color: '#667eea' }],
-    SUN: [{ type: 'EVENT', title: '스페셜 이벤트', desc: '팬 이벤트 · Q&A · 특별 방송', color: '#764ba2' }],
-  };
 
   return (
     <div style={{ backgroundColor: '#0a0a0f', minHeight: '100vh', color: '#fff', paddingBottom: '100px' }}>
@@ -194,87 +182,6 @@ const Content = () => {
           </div>
         </div>
 
-        {/* Planned Content Schedule */}
-        <div>
-          <div style={{ marginBottom: '16px' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: '700', marginBottom: '8px' }}>PLANNED CONTENT</h2>
-            <p style={{ fontSize: '15px', color: '#718096', margin: 0 }}>
-              앞으로 운영할 콘텐츠 방향 — 소속 크리에이터와 함께 실제 스케줄을 공개합니다.
-            </p>
-          </div>
-          <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '40px' }} />
-
-          <div style={{
-            background: 'rgba(255,255,255,0.02)', borderRadius: '24px',
-            border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden',
-          }}>
-            {/* Day tabs */}
-            <div className="schedule-day-tabs" style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-              {days.map(day => (
-                <button
-                  key={day}
-                  onClick={() => setActiveDay(day)}
-                  style={{
-                    flex: 1, padding: '20px 0',
-                    background: activeDay === day ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
-                    border: 'none',
-                    borderBottom: activeDay === day ? '2px solid #667eea' : '2px solid transparent',
-                    color: activeDay === day ? '#fff' : '#718096',
-                    fontSize: '16px', fontWeight: '700',
-                    cursor: 'pointer', transition: 'all 0.2s',
-                    fontFamily: "'Pretendard', sans-serif",
-                  }}
-                >
-                  {day}
-                </button>
-              ))}
-            </div>
-
-            <div style={{ padding: '40px' }}>
-              {(scheduleData[activeDay] || []).map((item, i) => (
-                <motion.div
-                  className="schedule-row"
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  style={{
-                    display: 'flex', gap: '24px',
-                    marginBottom: i === (scheduleData[activeDay].length - 1) ? 0 : '20px',
-                  }}
-                >
-                  <div style={{
-                    flexShrink: 0, paddingTop: '4px',
-                    display: 'flex', alignItems: 'flex-start',
-                  }}>
-                    <span style={{
-                      padding: '6px 12px',
-                      background: `${item.color}20`,
-                      border: `1px solid ${item.color}40`,
-                      borderRadius: '10px', fontSize: '11px',
-                      color: item.color, fontWeight: '700', letterSpacing: '1px',
-                      whiteSpace: 'nowrap',
-                    }}>
-                      {item.type}
-                    </span>
-                  </div>
-                  <div style={{
-                    flex: 1, background: '#111', padding: '22px 24px',
-                    borderRadius: '16px',
-                    borderTop: '1px solid rgba(255,255,255,0.05)',
-                    borderRight: '1px solid rgba(255,255,255,0.05)',
-                    borderBottom: '1px solid rgba(255,255,255,0.05)',
-                    borderLeft: `4px solid ${item.color}`,
-                  }}>
-                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#fff', margin: '0 0 8px 0' }}>
-                      {item.title}
-                    </h4>
-                    <div style={{ color: '#a0aec0', fontSize: '14px' }}>{item.desc}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
